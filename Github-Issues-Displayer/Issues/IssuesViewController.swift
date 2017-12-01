@@ -29,18 +29,30 @@ class IssuesViewController: UIViewController {
         let issuesView = IssuesView(frame: self.view.bounds)
         self.view = issuesView
         tableView = issuesView.tableView
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableViewSetup()
     }
 }
 
 extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
+    fileprivate func tableViewSetup() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(IssueTableViewCell.self, forCellReuseIdentifier: IssueTableViewCell.identifier)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return issues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: IssueTableViewCell.identifier, for: indexPath) as! IssueTableViewCell
+        let issue = issues[indexPath.row]
+        cell.set(issue)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 
