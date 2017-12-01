@@ -9,18 +9,28 @@
 import UIKit
 
 class IssuesViewController: UIViewController {
-    var issues: [Issue] = []
+    var tableView: UITableView!
     
+    var issues: [Issue] = []
     var dataStore: IssuesVCDataStore?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewSetup()
         dataStoreSetup()
     }
     
     private func dataStoreSetup() {
         dataStore = IssuesVCDataStore(delegate: self)
         dataStore?.getIssues()
+    }
+    
+    private func viewSetup() {
+        let issuesView = IssuesView(frame: self.view.bounds)
+        self.view = issuesView
+        tableView = issuesView.tableView
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
 
@@ -36,6 +46,7 @@ extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension IssuesViewController: IssuesVCDataDelegate {
     func received(_ issues: [Issue]) {
-        
+        self.issues = issues
+        tableView.reloadData()
     }
 }

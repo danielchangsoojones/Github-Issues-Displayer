@@ -20,9 +20,6 @@ class IssuesVCDataStore {
     init(delegate: IssuesVCDataDelegate) {
         self.delegate = delegate
     }
-    
-    
-    
 }
 
 extension IssuesVCDataStore {
@@ -38,7 +35,7 @@ extension IssuesVCDataStore {
             let cancelRequest = responseJSON
                 // this will fire the request
                 .subscribe(onNext: { json in
-                    print(json)
+                    self.parse(json)
                 })
             
             Thread.sleep(forTimeInterval: 3.0)
@@ -48,7 +45,22 @@ extension IssuesVCDataStore {
         }
     }
     
-    private func parse(_ JSON: Any) {
+    private func parse(_ json: Any) {
+        if let jsonArray = json as? [NSDictionary] {
+            let issues = convert(jsonArray)
+            self.delegate?.received(issues)
+        }
+    }
+    
+    private func convert(_ jsonArray: [NSDictionary]) -> [Issue] {
+        var issues: [Issue] = []
+        for issueJSON in jsonArray {
+            let body: String = issueJSON["body"] as? String ?? ""
+            let title: String = issueJSON["title"] as? String ?? ""
+            let issue = Issue(title: title, body: body)
+            issues.append(issue)
+        }
         
+        return issues
     }
 }

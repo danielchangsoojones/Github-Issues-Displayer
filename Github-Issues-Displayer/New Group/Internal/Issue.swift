@@ -10,12 +10,10 @@ import Foundation
 
 class Issue {
     var title: String = ""
-    var date: Date = Date()
     var body: String = ""
     
-    init(title: String, date: Date, body: String) {
+    init(title: String, body: String) {
         self.title = title
-        self.date = date
         self.body = body
     }
 }

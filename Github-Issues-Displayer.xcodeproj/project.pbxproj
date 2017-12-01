@@ -15,6 +15,7 @@
 		924D6DF91FD1AE290060E584 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D6DF81FD1AE290060E584 /* Issue.swift */; };
 		924D6DFE1FD1AF4A0060E584 /* IssuesVCDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D6DFD1FD1AF4A0060E584 /* IssuesVCDataStore.swift */; };
 		924D6E011FD1B3390060E584 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D6E001FD1B3390060E584 /* IssueTableViewCell.swift */; };
+		924D6E041FD1BA350060E584 /* IssuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D6E031FD1BA350060E584 /* IssuesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		924D6DF81FD1AE290060E584 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		924D6DFD1FD1AF4A0060E584 /* IssuesVCDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesVCDataStore.swift; sourceTree = "<group>"; };
 		924D6E001FD1B3390060E584 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
+		924D6E031FD1BA350060E584 /* IssuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				924D6DFC1FD1AF3B0060E584 /* Data Store */,
 				924D6DFF1FD1B3200060E584 /* Cell */,
 				924D6DE71FD1A7630060E584 /* IssuesViewController.swift */,
+				924D6E031FD1BA350060E584 /* IssuesView.swift */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				924D6DE81FD1A7630060E584 /* IssuesViewController.swift in Sources */,
 				924D6DE61FD1A7630060E584 /* AppDelegate.swift in Sources */,
 				924D6DFE1FD1AF4A0060E584 /* IssuesVCDataStore.swift in Sources */,
+				924D6E041FD1BA350060E584 /* IssuesView.swift in Sources */,
 				924D6DF91FD1AE290060E584 /* Issue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
