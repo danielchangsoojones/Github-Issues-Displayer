@@ -23,8 +23,8 @@ class IssuesVCDataStore {
 }
 
 extension IssuesVCDataStore {
-    func getIssues() {
-        if let url = URL(string: "https://api.github.com/repos/popwarsweet/PageControls/issues") {
+    func getIssues(username: String = "popwarsweet", repo: String = "PageControls") {
+        if let url = URL(string: "https://api.github.com/repos/" + username + "/" + repo + "/issues") {
             let req = URLRequest(url: url)
             let responseJSON = URLSession.shared.rx.json(request: req)
             

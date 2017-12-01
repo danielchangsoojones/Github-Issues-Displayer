@@ -54,6 +54,27 @@ extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        searchBar.backgroundColor = .red
+        searchBar.delegate = self
+        return searchBar
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+}
+
+extension IssuesViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            //TODO: Parse the search bar text to pull out the username and repo name, but I didn't have time to do this.
+            //TODO: Pass the github repo name to my data store, so it can search and display results
+            self.dataStore?.getIssues()
+        }
+    }
 }
 
 extension IssuesViewController: IssuesVCDataDelegate {
